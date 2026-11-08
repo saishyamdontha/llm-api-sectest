@@ -1,0 +1,8 @@
+INVALID no_credential_read /api/user/properties
+WEAK no_credential_read /api/user/properties/for-sale
+WEAK no_credential_read /ledger/{propertyId}
+WEAK no_credential_read /ledger/{propertyId}/owner
+WEAK no_credential_read /ledger/next-id
+REFUSED no_credential_read /api/user/{userId}/delete/property/{propertyId}
+REFUSED no_credential_read /api/user/property/transfer/{propertyId}/{sellerId}/{buyerId}
+REFUSED no_credential_read /ledger/{propertyId}/cancel
