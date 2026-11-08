@@ -1,0 +1,12 @@
+[
+ {"method":"POST","path":"/api/auth/register"},
+ {"method":"POST","path":"/api/auth/login"},
+ {"method":"GET","path":"/api/user/{userId}/properties"},
+ {"method":"GET","path":"/api/user/properties/for-sale"},
+ {"method":"GET","path":"/ledger/{propertyId}"},
+ {"method":"GET","path":"/ledger/{propertyId}/owner"},
+ {"method":"GET","path":"/ledger/next-id"},
+ {"method":"DELETE","path":"/api/user/{userId}/delete/property/{propertyId}"},
+ {"method":"PUT","path":"/api/user/property/transfer/{propertyId}/{sellerId}/{buyerId}"},
+ {"method":"POST","path":"/ledger/{propertyId}/cancel"}
+]
