@@ -1,0 +1,11 @@
+# Written from manual code review BEFORE any test generator exists.
+# Target: local RealEstate_Blockchain only (localhost:8080). Never run against a deployed URL.
+weaknesses:
+  - {id: W1, class: missing_authentication, endpoint: "ALL /api/user/* and /ledger/*", confirm: "protected action succeeds with no credentials"}
+  - {id: W2, class: plaintext_password, endpoint: "POST /api/auth/login", confirm: "password stored and compared in plain text (code review only)"}
+  - {id: W3, class: user_enumeration, endpoint: "POST /api/auth/login", confirm: "404 for unknown email, 401 for wrong password"}
+  - {id: W4, class: idor_read, endpoint: "GET /api/user/{userId}/properties", confirm: "user A reads user B's properties"}
+  - {id: W5, class: idor_delete, endpoint: "DELETE /api/user/{userId}/delete/property/{propertyId}", confirm: "user A deletes user B's property"}
+  - {id: W6, class: broken_authorization, endpoint: "PUT /api/user/property/transfer/{propertyId}/{sellerId}/{buyerId}", confirm: "third party transfers a property"}
+  - {id: W7, class: unauthenticated_state_change, endpoint: "POST /ledger/{propertyId}/cancel", confirm: "anonymous caller changes on-chain sale state"}
+  - {id: W8, class: mass_assignment, endpoint: "POST /api/auth/register", confirm: "client-supplied id overwrites an existing user (UNCONFIRMED, test it)"}
