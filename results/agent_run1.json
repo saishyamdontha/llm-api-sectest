@@ -1,0 +1,58 @@
+[
+ {
+  "check": "no_credential_read",
+  "method": "GET",
+  "path": "/api/user/properties",
+  "reason": "Public endpoint could expose user data without authentication.",
+  "result": "INVALID"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "GET",
+  "path": "/api/user/properties/for-sale",
+  "reason": "Public endpoint could expose property data without authentication.",
+  "result": "WEAK"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "GET",
+  "path": "/ledger/{propertyId}",
+  "reason": "Public endpoint could expose ledger data without authentication.",
+  "result": "WEAK"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "GET",
+  "path": "/ledger/{propertyId}/owner",
+  "reason": "Public endpoint could expose owner data without authentication.",
+  "result": "WEAK"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "GET",
+  "path": "/ledger/next-id",
+  "reason": "Public endpoint could expose next ID without authentication.",
+  "result": "WEAK"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "DELETE",
+  "path": "/api/user/{userId}/delete/property/{propertyId}",
+  "reason": "Public endpoint could allow deletion without authentication.",
+  "result": "REFUSED"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "PUT",
+  "path": "/api/user/property/transfer/{propertyId}/{sellerId}/{buyerId}",
+  "reason": "Public endpoint could allow property transfer without authentication.",
+  "result": "REFUSED"
+ },
+ {
+  "check": "no_credential_read",
+  "method": "POST",
+  "path": "/ledger/{propertyId}/cancel",
+  "reason": "Public endpoint could allow cancellation without authentication.",
+  "result": "REFUSED"
+ }
+]
